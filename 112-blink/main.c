@@ -1,4 +1,5 @@
 #include "pico/stdlib.h"
+#include "hardware/gpio.h"
 int main()
 {
     const uint LED_PIN= PICO_DEFAULT_LED_PIN;
