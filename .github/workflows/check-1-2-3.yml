@@ -1,0 +1,25 @@
+name: Проверка п1.2.3
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Проверка структуры проекта
+      run: |
+        if [ ! -d "123-led-button-debounce" ]; then
+          echo "Ошибка: Не найдена папка 123-led-button-debounce"
+          exit 1
+        fi
+        if [ ! -f "123-led-button-debounce/main.c" ]; then
+          echo "Ошибка: Не найден файл main.c в папке задания"
+          exit 1
+        fi
